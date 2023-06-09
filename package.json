@@ -1,0 +1,19 @@
+{
+  "name": "access-master-control-server",
+  "version": "0.0.1",
+  "description": "The \"Access Master Control Server\" is an innovative server solution specifically designed to manage and control the access rights and permissions of multiple applications across diverse systems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeCast-Duo/Access-Master-Control-Server.git"
+  },
+  "author": "CodeCast-Duo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeCast-Duo/Access-Master-Control-Server/issues"
+  },
+  "homepage": "https://github.com/CodeCast-Duo/Access-Master-Control-Server#readme"
+}
