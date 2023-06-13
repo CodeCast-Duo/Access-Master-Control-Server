@@ -1,13 +1,12 @@
 # Contributing to CodeCast-Duo
-
 Thank you for considering contributing to this project! We appreciate your time and effort in helping us improve our project. This document outlines the guidelines for contributing and provides information on how you can get involved.
 
 Table of Contents
-•	How to Contribute
-•	Submitting Contributions
-•	Issue Reporting
-•	Feature Requests
-•	License
+- How to Contribute
+- Submitting Contributions
+- Issue Reporting
+- Feature Requests
+- License
 
 # How to Contribute
 We welcome contributions from everyone. To get started, follow these steps:
@@ -25,8 +24,8 @@ We welcome contributions from everyone. To get started, follow these steps:
 
 # Submitting Contributions
 When submitting your contributions, please ensure the following:
-•	Your commits are clear and have appropriate commit messages.
-•	If your contribution addresses an open issue, reference the issue number in your commit message or PR description.
+- Your commits are clear and have appropriate commit messages.
+- If your contribution addresses an open issue, reference the issue number in your commit message or PR description.
 Our team will review your contribution as soon as possible. We may provide feedback or request modifications before merging your changes. We appreciate your patience during the review process.
 
 # Issue Reporting
