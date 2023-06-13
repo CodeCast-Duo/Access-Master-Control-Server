@@ -1,4 +1,4 @@
-#Contributing to CodeCast-Duo
+# Contributing to CodeCast-Duo
 
 Thank you for considering contributing to this project! We appreciate your time and effort in helping us improve our project. This document outlines the guidelines for contributing and provides information on how you can get involved.
 
@@ -9,7 +9,7 @@ Table of Contents
 •	Feature Requests
 •	License
 
-#How to Contribute
+# How to Contribute
 We welcome contributions from everyone. To get started, follow these steps:
 1.	Fork the repository.
 2.	Clone the forked repository to your local machine.
@@ -23,13 +23,13 @@ We welcome contributions from everyone. To get started, follow these steps:
 10.	Include any relevant information or documentation that supports your contribution.
 11.	Submit the PR and await feedback or further instructions.
 
-#Submitting Contributions
+# Submitting Contributions
 When submitting your contributions, please ensure the following:
 •	Your commits are clear and have appropriate commit messages.
 •	If your contribution addresses an open issue, reference the issue number in your commit message or PR description.
 Our team will review your contribution as soon as possible. We may provide feedback or request modifications before merging your changes. We appreciate your patience during the review process.
 
-#Issue Reporting
+# Issue Reporting
 If you encounter any issues or bugs while using the project, please help us by reporting them. To submit an issue, follow these steps:
 1.	Go to the Issues tab of the repository.
 2.	Click on the "New Issue" button.
@@ -39,7 +39,7 @@ If you encounter any issues or bugs while using the project, please help us by r
 6.	Submit the issue and await further updates.
 Your feedback and bug reports are valuable to us, and we appreciate your effort in helping us improve the project.
 
-#Feature Requests
+# Feature Requests
 If you have a feature request or an idea to enhance the project, we encourage you to share it with us. To submit a feature request, follow these steps:
 1.	Go to the Issues tab of the repository.
 2.	Click on the "New Issue" button.
@@ -49,7 +49,7 @@ If you have a feature request or an idea to enhance the project, we encourage yo
 6.	Submit the request and engage in further discussions, if necessary.
 We appreciate your input and welcome suggestions for improving our project.
 
-#License
+# License
 By contributing to this project, you agree that your contributions will be licensed under the project's chosen license.
 Thank you for your interest in contributing to this project. We value your contributions and look forward to working with you to make our project better. Happy coding!
 
