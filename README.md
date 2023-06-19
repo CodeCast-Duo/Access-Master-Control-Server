@@ -15,7 +15,7 @@ This architecture provide following features:
 - Create tables or collections with appropriate fields, data types, primary keys, foreign keys, and indexes.
 - Normalize the data structure to minimize redundancy and ensure data integrity.
 
-# Data Security:
+# Data Security
 
 - Apply security measures to protect sensitive data.
 - Implement mechanisms such as encryption to safeguard data confidentiality.
