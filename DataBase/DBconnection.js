@@ -1,9 +1,11 @@
 const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv');
+dotenv.config();
 
-const uri = 'mongodb://localhost:27017'; 
+const uri = process.env.DB_URL; 
 
-const dbName = 'AccessMasterControlServerDB';
-const collectionName = 'TestCollection';
+const dbName = process.env.DB_Name;
+const collectionName = process.env.Collection_Name;
 
 async function connectToDB() {
   try {
