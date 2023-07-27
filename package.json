@@ -4,6 +4,7 @@
   "description": "The \"Access Master Control Server\" is an innovative server solution specifically designed to manage and control the access rights and permissions of multiple applications across diverse systems.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

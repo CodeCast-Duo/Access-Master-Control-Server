@@ -6,12 +6,15 @@ const port = process.env.PORT;
 
 app.use(cors());
 
-// Define a route
-app.get('/', (req, res) => {
-  res.send('Hello, Express!');
-});
+const router = require('./routers');
+
+app.use('/', router);
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running`);
+  console.log(`Server is running ${process.env.HOST_URL}:${process.env.PORT}`);
 });
+
+module.exports = {
+  app
+};
