@@ -62,7 +62,7 @@ app.use('/api/auth', auth_routes);
 app.use('/api/test', user_routes);
 
 // set port, listen for requests
-const PORT = process.env.PORT || process.env.ALTERNATIVE_PORT;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
