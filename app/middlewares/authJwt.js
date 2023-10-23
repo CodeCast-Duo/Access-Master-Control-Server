@@ -15,7 +15,7 @@ verifyToken = (req, res, next) => {
     config.secret,
     (err, decoded) => {
       if (err) {
-        return res.status(401).send({
+        return res.status(401).send({ ////////////////////провести запит по токену з витягуванням даних користувача
           message: "Unauthorized!",
         });
       }
@@ -24,10 +24,33 @@ verifyToken = (req, res, next) => {
     });
 };
 
-isAdmin = (req, res, next) => {
+hasRoleAccess = (role_access_level) => {
+  return (req, res, next) => {
+    User.findOne({ id: req.userId}).exec((err, user) => {
+      if (err) {
+        res.status(500).send({ message: 'Server returned exeption' });
+        return;
+      }
+    })
+
+    if (user.hasRoleAccess(role_access_level)) {
+      next();
+      return;
+    }
+    return res.status(403).send({ message: `Require ${role_access_level}` });
+  };
+}
+
+const authJwt = {
+  verifyToken,
+  hasRoleAccess
+};
+module.exports = authJwt;
+
+/*isAdmin = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
-      res.status(500).send({ message: err });
+      res.status(500).send({ message: 'Server returned exeption' });
       return;
     }
 
@@ -37,7 +60,7 @@ isAdmin = (req, res, next) => {
       },
       (err, roles) => {
         if (err) {
-          res.status(500).send({ message: err });
+          res.status(500).send({ message: 'Server returned exeption' });
           return;
         }
 
@@ -53,42 +76,4 @@ isAdmin = (req, res, next) => {
       }
     );
   });
-};
-
-isModerator = (req, res, next) => {
-  User.findById(req.userId).exec((err, user) => {
-    if (err) {
-      res.status(500).send({ message: err });
-      return;
-    }
-
-    Role.find(
-      {
-        _id: { $in: user.roles },
-      },
-      (err, roles) => {
-        if (err) {
-          res.status(500).send({ message: err });
-          return;
-        }
-
-        for (let i = 0; i < roles.length; i++) {
-          if (roles[i].name === "moderator") {
-            next();
-            return;
-          }
-        }
-
-        res.status(403).send({ message: "Require Moderator Role!" });
-        return;
-      }
-    );
-  });
-};
-
-const authJwt = {
-  verifyToken,
-  isAdmin,
-  isModerator,
-};
-module.exports = authJwt;
+};*/
