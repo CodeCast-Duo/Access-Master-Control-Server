@@ -4,7 +4,7 @@ const auth_controller = require("../controllers/auth.controller");
 
 router.post('/signup', 
   [
-   // verifySignUp.checkDuplicateUsernameOrEmail
+   
   ],
   auth_controller.signup);
 

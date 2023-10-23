@@ -4,7 +4,7 @@ const db = require("../models/index.js");
 const User = db.user;
 const Role = db.role;
 
-verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
   let token = req.session.token;
 
   if (!token) {
@@ -15,7 +15,7 @@ verifyToken = (req, res, next) => {
     config.secret,
     (err, decoded) => {
       if (err) {
-        return res.status(401).send({ //провести запит по токену з витягуванням даних користувача
+        return res.status(401).send({ 
           message: "Unauthorized!",
         });
       }
@@ -24,7 +24,7 @@ verifyToken = (req, res, next) => {
     });
 };
 
-hasRoleAccess = (role_access_level) => {
+const hasRoleAccess = (role_access_level) => {
   return (req, res, next) => {
     User.findOne({ id: req.userId}).exec((err, user) => {
       if (err) {
