@@ -45,14 +45,6 @@ UserSchema.methods.hasRoleAccess = function (role_access_level) {
   return role_access_level === this.role;
 }
 
-/*UserSchema.pre('save', function(next){
-  const user = this;
-  const buf = randomBytes(15);
-  user.id = buf.toString('hex');
-  console.log(user.id);
-  next();
-})*/
-
 const User = mongoose.model('User', UserSchema
 
 );

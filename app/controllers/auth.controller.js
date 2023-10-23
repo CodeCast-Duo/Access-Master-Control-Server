@@ -6,7 +6,7 @@ const Role = db.role;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
-exports.signup = (req, res) => {//TODO add check username, email, pass before this function
+exports.signup = (req, res) => {
   const user = new User({
     name: req.body.username,
     email: req.body.email,
@@ -16,7 +16,6 @@ exports.signup = (req, res) => {//TODO add check username, email, pass before th
   user.save((err, user) => {
     if (err) {
       if (err.name === 'MongoError' && err.code === 11000) {
-        // Duplicate username or email
         return  res.status(500).send({ message: 'Username or email already exists' });
       }
       return res.status(500).send({ message: 'Server returned exeption' });

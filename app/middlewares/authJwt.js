@@ -15,7 +15,7 @@ verifyToken = (req, res, next) => {
     config.secret,
     (err, decoded) => {
       if (err) {
-        return res.status(401).send({ ////////////////////провести запит по токену з витягуванням даних користувача
+        return res.status(401).send({ //провести запит по токену з витягуванням даних користувача
           message: "Unauthorized!",
         });
       }
@@ -45,35 +45,5 @@ const authJwt = {
   verifyToken,
   hasRoleAccess
 };
+
 module.exports = authJwt;
-
-/*isAdmin = (req, res, next) => {
-  User.findById(req.userId).exec((err, user) => {
-    if (err) {
-      res.status(500).send({ message: 'Server returned exeption' });
-      return;
-    }
-
-    Role.find(
-      {
-        _id: { $in: user.roles },
-      },
-      (err, roles) => {
-        if (err) {
-          res.status(500).send({ message: 'Server returned exeption' });
-          return;
-        }
-
-        for (let i = 0; i < roles.length; i++) {
-          if (roles[i].name === "admin") {
-            next();
-            return;
-          }
-        }
-
-        res.status(403).send({ message: "Require Admin Role!" });
-        return;
-      }
-    );
-  });
-};*/
