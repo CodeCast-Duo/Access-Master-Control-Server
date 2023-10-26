@@ -2,7 +2,8 @@ const config = require("../config/auth.config");
 const db = require("../models");
 const { authJwt } = require("../middlewares");
 const User = db.user;
-const RefreshToken = db.refreshToken;
+
+const neDB = require("../LocalDB/NeDB");
 
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
@@ -70,12 +71,23 @@ exports.signin = (req, res) => {
           expiresIn: config.jwtExpiration,
         });
 
-      const refreshToken = await RefreshToken.createToken(user);//refresh token creation
+      const refreshToken = jwt.sign({ id: user.id, role: user.role },
+        config.secret,
+        {
+          algorithm: 'HS256',
+          allowInsecureKeySizes: true,
+          expiresIn: config.jwtRefreshExpiration,
+        });
 
-      return res.status(200).send({
-        accessToken: token,
-        refreshToken: refreshToken,
-      });
+        neDB.RefreshToken.createAndInsertRefreshTokenModel(token, refreshToken, function(successfully){
+          if(successfully){
+            return res.status(200).send({
+              accessToken: token,
+              refreshToken: refreshToken,
+            });
+          }
+          return res.status(404).send({ message: "Local db work incorrect" });
+        });
     });
 };
 

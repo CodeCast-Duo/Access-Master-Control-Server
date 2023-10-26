@@ -1,37 +1,31 @@
 const Datastore = require('nedb');
-const db = new Datastore({ filename: 'RefreshToken.db', autoload: true });
-const config = require("../config/auth.config");
-const { v4: uuidv4 } = require('uuid');
-const RefreshToken = db;
+const RefreshTokenModel = require('./refreshToken.model.js');
+const {validateSchema} = require("./schemaValidator");
+const db = {};
+db.RefreshToken = new Datastore({ filename: 'RefreshToken.db'});
+db.RefreshToken.loadDatabase(function (err) {    // Callback is optional
+    console.log(err);
+  });
 
-saveToken = async function (user) {
-    const expiredAt = new Date();
+db.RefreshToken.createAndInsertRefreshTokenModel = (accessToken, refreshToken, callback)=>{
+    const refreshTokenModel = RefreshTokenModel.createRefreshTokenModel(accessToken, refreshToken);
+    validateSchema(RefreshTokenModel.RefreshTokenSchema, refreshTokenModel).then((data)=>{
+        db.RefreshToken.insert(data, function (err, newDocs) {
+            callback(true);
+        })
+    }).catch((err)=>{
+        console.error(err);
+        callback(false);
+    })
+};
 
-    expiredAt.setSeconds(
-        expiredAt.getSeconds() + config.jwtRefreshExpiration
-    );
-
-    //const refreshToken = uuidv4();
-
-    /*const _object = new this({
-        token: _token,
-        user: user.id,
-        expiryDate: expiredAt.getTime(),
-    });*/
-
-    console.log(refreshToken);
-
-    //const refreshToken = await _object.save();
-    //return refreshToken.token;
-    const model = {
-        id: () => randomBytes(15).toString('hex')
-        , refreshToken: refreshToken
-        , accessToken: new Date()
-    };
-}
-
-const verifyExpiration = (refreshToken) => {
-    return token.expiryDate.getTime() < new Date().getTime();
-}
-
-module.exports = RefreshToken;
+db.RefreshToken.insertRefreshTokenModel = (refreshTokenModel)=>{
+    validateSchema(RefreshTokenModel.RefreshTokenSchema, refreshTokenModel).then((data)=>{
+        db.RefreshToken.insert(data, function (err, newDocs) {
+            console.log(newDocs);
+        })
+    }).catch((err)=>{
+        console.error(err);
+    })
+};
+module.exports = db;
