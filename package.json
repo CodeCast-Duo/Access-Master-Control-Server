@@ -27,6 +27,7 @@
     "mongodb": "^5.7.0",
     "mongoose": "^6.10.0",
     "mongoose-role": "^3.0.5",
+    "nedb": "^1.8.0",
     "nodemon": "^3.0.1"
   }
 }
