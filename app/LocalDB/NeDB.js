@@ -1,8 +1,10 @@
 const Datastore = require('nedb');
+const path = require('node:path');
 const RefreshTokenModel = require('./refreshToken.model.js');
 const {validateSchema} = require("./schemaValidator");
 const db = {};
-db.RefreshToken = new Datastore({ filename: 'RefreshToken.db'});
+
+db.RefreshToken = new Datastore({ filename: path.join(__dirname, './RefreshTokenDB/RefreshToken.db')});
 db.RefreshToken.loadDatabase(function (err) {    // Callback is optional
     console.log(err);
   });
